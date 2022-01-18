@@ -46,19 +46,25 @@ class Film {
     }
 
     public function getFullTitle(){
-        if($this -> sottotitolo != ""){
-            return $this -> titolo . ": " . $this -> sottotitolo;
-        }
-        return $this -> titolo;
+
+        // if($this -> sottotitolo != ""){
+        //     return $this -> titolo . ": " . $this -> sottotitolo;
+        // }else {
+        //     return $this -> titolo;
+        // }
         
+        return $this -> titolo . (!$this -> sottotitolo ? '' : ": " . $this -> sottotitolo);
     }
 
     public function __toString(){
-        if($this -> regista != ""){
-            return $this -> getFullTitle() . " | " . $this -> regista . "<br>";
-        }
-        return $this -> getFullTitle() . " | ??? <br>";
+
+        // if($this -> regista != ""){
+        //     return $this -> getFullTitle() . " | " . $this -> regista . "<br>";
+        // }else {
+        //     return $this -> getFullTitle() . " | ??? <br>";
+        // }   
         
+        return $this -> getFullTitle() . " | " . (!$this -> regista ? "???" : $this -> regista);
     }
 }
 
